@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace NexGenAPi
 {
-   public class APIHelper
+   public class APIHelper<T>
     {
         public RestClient restClient;
         public RestRequest restRequest;
@@ -46,7 +46,7 @@ namespace NexGenAPi
 
         }
 
-        public DTO GetContent<DTO>(RestResponse response)
+        public DTO GetContent<DTO>(IRestResponse response)
         {
             var content = response.Content;
             DTO dtoObject = JsonConvert.DeserializeObject<DTO>(content);
