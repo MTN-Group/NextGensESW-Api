@@ -12,7 +12,7 @@ using NexGenAPi;
 
 namespace NexGenAPi
 {
-    public class MyMTN
+    public class MyMTN<T>
     {
         public Products GetProducts()
         {
@@ -27,5 +27,19 @@ namespace NexGenAPi
             var products = JsonConvert.DeserializeObject<Products>(content);
             return products;
         }
+
+        public Products GetProducts(string endpoint)  // , dynamic payload
+        {
+          
+            var user = new APIHelper<Products>();
+            var url = user.SetUrl(endpoint);
+           // var url = user.SetUrl("api/v1/login-sz/26876700060");
+            var request = user.CreateGetRequest();
+            var response = user.GetRestResponse(url, request);
+            Products content = user.GetContent<Products>(response);
+            return content;
+        }
+
+
     }
 }

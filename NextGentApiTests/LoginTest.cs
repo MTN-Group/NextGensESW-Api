@@ -14,19 +14,17 @@ namespace NextGentApiTests
                                 
                                  ""client_id"": ""MyMTN"",
                                   ""client_secret"": ""secret"",
-                                  ""otp"": ""1439"",
+                                  ""otp"": ""1234"",
                                   ""grant_type"": ""password"",
                                  ""scope"": ""NextGenAPI.Access offline_access""
                                 }";
 
-            var user = new APIHelper<LoginDTO>();
-            var url = user.SetUrl("/api/v1/login-sz/26876700060");
-            var request = user.CreatePostRequest(payload);
-            var response = user.GetRestResponse(url, request);
-            LoginDTO content = user.GetContent<LoginDTO>(response);
-            Assert.AreEqual("false", content.meta.success);
-            Assert.AreEqual("AMARNATH REDDY ANDEM", content.meta.experience.user.first_name);
-            Assert.IsNotNull(content.meta.experience.user.access_token);
+            var login = new Login<LoginDTO>();
+            var User = login.UserLogin("api/v1/login-sz/26876700060", payload);
+
+            Assert.AreEqual("false", User.Meta[0].experience.user.success);
+            Assert.AreEqual("AMARNATH REDDY ANDEM", User.Meta[0].experience.user.first_name);
+            Assert.IsNotNull(User.Meta[0].experience.user.access_token);
 
         }
     }

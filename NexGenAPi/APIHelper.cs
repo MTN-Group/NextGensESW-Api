@@ -13,7 +13,7 @@ namespace NexGenAPi
     {
         public RestClient restClient;
         public RestRequest restRequest;
-        public string baseUrl = "http://shop-api.my.mtn.com/";
+        public string baseUrl = "https://transactions.my.mtn.com/";
 
         public RestClient SetUrl(string endpoint)
         {
@@ -29,14 +29,31 @@ namespace NexGenAPi
             resRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
             return resRequest;
 
+        }
+
+        public RestRequest CreatePutRequest(string payload)  //Payload = RequestBody
+        {
+            var resRequest = new RestRequest(Method.PUT);
+            resRequest.AddHeader("Accept", "application/json");
+            resRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
+            return resRequest;
+
 
         }
 
-        public RestRequest CreateGetRequest(string payload)  //Payload = RequestBody
+        public RestRequest CreateGetRequest()  //Payload = RequestBody
         {
             var resRequest = new RestRequest(Method.GET);
             resRequest.AddHeader("Accept", "application/json");
-            //resRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
+           // resRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
+            return resRequest;
+        }
+
+        public RestRequest CreateDeleteRequest()  //Payload = RequestBody
+        {
+            var resRequest = new RestRequest(Method.DELETE);
+            resRequest.AddHeader("Accept", "application/json");
+            // resRequest.AddParameter("application/json", payload, ParameterType.RequestBody);
             return resRequest;
         }
 

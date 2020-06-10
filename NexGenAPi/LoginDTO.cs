@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace NexGenAPi
 {
-   public class LoginDTO
+    public partial class LoginDTO
     {
-        public Meta meta  { get; set; }
+        public List<Meta>  Meta  { get; set; }
     }
 
     public partial class Meta
