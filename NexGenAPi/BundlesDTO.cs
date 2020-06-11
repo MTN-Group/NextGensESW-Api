@@ -8,32 +8,32 @@ namespace NexGenAPi
 {
     public partial class BundlesDTO
     {
-        public Int64 MaxBundleSize { get; set; }
-        public Int64 MaxCost { get; set; }
-        public Int64 MinBundleSize { get; set; }
-        public Int64 MinCost { get; set; }
+        public Int64 max_bundle_size { get; set; }
+        public Int64 max_cost { get; set; }
+        public Int64 min_bundle_size { get; set; }
+        public Int64 min_cost { get; set; }
         public List<Response> Response { get; set; }
         public long StatusCode { get; set; }
     }
 
     public partial class Response
     {
-        public string Bundle_Name { get; set; }
-        public string Bundle_Type { get; set; }
-        public string Bundle_Nact_Code { get; set; }
-        public string Bundle_Expiry_Date { get; set; }
-        public string Bundle_Subscription_Type { get; set; }
-        //public List <BundleDaCodeElement>BundleDaCodes { get; set; }
-        public string Bundle_Id { get; set; }
-        public string Bundle_Popular { get; set; }
-        public string Bundle_Offer { get; set; }
-        public string Bundle_Data_Offer { get; set; }
-        public string Bundle_Combo_Offer { get; set; }
-        public string ProductId { get; set; }
-        public string ProductCategoryId { get; set; }
-        public BundleCost BundleCost { get; set; }
-        public List<BundleRule> Bundle_Rule { get; set; }
-        public BundleValue BundleValue { get; set; }
+        public string bundle_name { get; set; }
+        public string bundle_type { get; set; }
+        public string bundle_nact_code { get; set; }
+        public string bundle_expiry_date { get; set; }
+        public string bundle_subscription_type { get; set; }
+        public List<BundleDaCodes> bundle_da_codes { get; set; }
+        public string bundle_id { get; set; }
+        public string bundle_popular { get; set; }
+        public string bundle_offer { get; set; }
+        public string bundle_data_offer { get; set; }
+        public string bundle_combo_offer { get; set; }
+        public string product_id { get; set; }
+        public string product_category_id { get; set; }
+        public BundleCost bundle_cost { get; set; }
+        public List<BundleRule> bundle_rule { get; set; }
+        public BundleValue bundle_value { get; set; }
         public BundleValidity BundleValidity { get; set; }
         public ProductCategory ProductCategory { get; set; }
         public PaymentOptions PaymentOptions { get; set; }
@@ -43,53 +43,58 @@ namespace NexGenAPi
         public string Bundle_Auto_Renewable { get; set; }
     }
 
+    public partial class BundleDaCodes
+    {
+        public string bundle_da_code { get; set; }
+
+    }
 
     public partial class BundleCost
     {
-        public string Bundle_Cost_Label_Label { get; set; }
-        public double Value { get; set; }
-        public string Unit { get; set; }
-        public double DisplayValue { get; set; }
-        public string DisplayName { get; set; }
+        public string label { get; set; }
+        public double value { get; set; }
+        public string unit { get; set; }
+        public double displayvalue { get; set; }
+        public string display_name { get; set; }
     }
 
     public partial class BundleRule
     {
-        public string Rule_Id { get; set; }
-        public string Rule_Name { get; set; }
-        public string Rule_Description { get; set; }
+        public string rule_id { get; set; }
+        public string rule_name { get; set; }
+        public string rule_description { get; set; }
         public string Rule_Icon { get; set; }
     }
 
     public partial class BundleValidity
     {
-        public string BundleValidityLabel_Label { get; set; }
-        public string Value { get; set; }
-        public string DisplayValue_Unit { get; set; }
-        public string DisplayValue { get; set; }
-        public string DisplayName { get; set; }
+        public string label { get; set; }
+        public double value { get; set; }
+        public string unit { get; set; }
+        public double display_value { get; set; }
+        public string display_name { get; set; }
     }
 
     public partial class BundleValue
     {
-        public int BundleType_Label { get; set; }
-        public string Value { get; set; }
-        public int Unit { get; set; }
-        public string DisplayValue { get; set; }
-        public string DisplayName { get; set; }
-        public string Bonus { get; set; }
-        public PackageDeal[] PackageDeal { get; set; }
+        public string label { get; set; }
+        public double value { get; set; }
+        public string unit { get; set; }
+        public double display_value { get; set; }
+        public string display_name { get; set; }
+        public string bonus { get; set; }
+        public PackageDeal[] package_deal { get; set; }
     }
 
     public partial class PackageDeal
     {
-        public string BundleTypeLabel { get; set; }
-        public string Value { get; set; }
-        public string Unit { get; set; }
-        public string DisplayValue { get; set; }
-        public string Currency { get; set; }
-        public string DisplayName { get; set; }
-        public BundleRate OutOfBundleRate { get; set; }
+        public string label { get; set; }
+        public double value { get; set; }
+        public string unit { get; set; }
+        public double display_value { get; set; }
+        public string currency { get; set; }
+        public string display_name { get; set; }
+        public BundleRate out_of_bundle_rate { get; set; }
         public BundleRate BundleRate { get; set; }
         public string Bonus { get; set; }
     }
@@ -121,20 +126,20 @@ namespace NexGenAPi
 
     public partial class ProductCategory
     {
-        public string ProductCategoryName { get; set; }
-        public string ProductCategoryId { get; set; }
-        public string ProductCategoryDescription { get; set; }
-        public string ProductId { get; set; }
-        public string Product { get; set; }
-        public FilterTab[] FilterTabs { get; set; }
+        public string product_category_name { get; set; }
+        public string product_category_id { get; set; }
+        public string product_category_description { get; set; }
+        public string product_id { get; set; }
+        public string product { get; set; }
+        public FilterTab[] filter_tabs { get; set; }
         public DateTimeOffset Created { get; set; }
         public DateTimeOffset Modified { get; set; }
     }
 
     public partial class FilterTab
     {
-        public string FilterTabName { get; set; }
-        public string FilterCriteria { get; set; }
+        public string filter_tab_name { get; set; }
+        public string filter_criteria { get; set; }
     }
 
 
