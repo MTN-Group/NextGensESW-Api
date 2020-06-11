@@ -24,7 +24,23 @@ namespace NextGentApiTests
             Assert.AreEqual(200, response.StatusCode);
             Assert.AreEqual("Data", response.Response[0].Product_Name);
         }
+        [TestMethod]
+        public void VerifBundle()
+        {
+            var myMtnApp = new MyMTN<Products>();
+            var response = myMtnApp.GetProducts();
+            Assert.AreEqual(200, response.StatusCode);
+            Assert.AreEqual("MTN Voice Bundles", response.Response[0].Product_Description);
+        }
 
-
+      
+        [TestMethod]
+        public void VerifProductName()
+        {
+            var myMtnApp = new MyMTN<Products>();
+            var response = myMtnApp.GetProducts();
+            Assert.AreEqual(200, response.StatusCode);
+            Assert.AreEqual("SMS", response.Response[0].Product_Name);
+        }
     }
 }
